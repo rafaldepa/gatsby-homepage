@@ -11,7 +11,7 @@ const StyledH1 = styled.h1`
 
 const StyledH2 = styled.h2`
     display: block;
-    font-size: 3.8rem;
+    font-size: 3.2rem;
     font-weight: 300;
     line-height: 1.1;
     margin: 0 0 30px 0;

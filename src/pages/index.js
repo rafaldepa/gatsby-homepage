@@ -24,7 +24,11 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
+const StyledHref = styled.a`
   text-decoration: none;
 `;
 
@@ -37,16 +41,34 @@ const PageWrapper = styled.div`
 
 const WrapperAbout = styled.div`
   flex: 0 0 100%;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 50px;
   min-height: calc(100vh - 300px);
+  color: #fff;
+  background-color: #0f0f0f;
+  background-image: url(https://images.pexels.com/photos/1509428/pexels-photo-1509428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  ::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 12, 12, 0.9);
+  }
 `;
 
 const AboutContent = styled.div`
-  display: block;
+  display: block;  
+  z-index: 2;
 `;
 
 const WrapperColumn = styled.div`
@@ -82,7 +104,7 @@ const IndexPage = () => (
       <WrapperAbout>
         <AboutContent>
           <Header1>Hi! I'm Rafał Depa.</Header1>
-          <StyledLink href="https://github.com/rafaldepa">
+          <StyledLink to="/about">
             <Button light>MEET ME</Button>
           </StyledLink>
         </AboutContent>        
@@ -90,17 +112,17 @@ const IndexPage = () => (
       <WrapperColumn>
         <ColumnContent>
           <Header2>Front-End Developer</Header2>
-          <StyledLink href="https://github.com/rafaldepa">
+          <StyledHref href="https://github.com/rafaldepa">
             <Button>VISIT GITHUB</Button>
-          </StyledLink>
+          </StyledHref>
         </ColumnContent>       
       </WrapperColumn> 
       <WrapperColumn>
         <ColumnContent>
           <Header2>Graphic Designer</Header2>
-          <StyledLink href="https://behance.net/rafaldepa">
+          <StyledHref href="https://behance.net/rafaldepa">
             <Button light>VISIT BEHANCE</Button>
-          </StyledLink>
+          </StyledHref>
         </ColumnContent>
       </WrapperColumn>         
     </PageWrapper>
