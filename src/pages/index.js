@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import { Header1, Header2 } from '../components/headings';
 import Button from '../components/button';
 import SEO from '../components/seo';
+import HeroImg from '../images/hero.jpg';
 
 const GlobalStyle = createGlobalStyle`
   @import url("https://fonts.googleapis.com/css?family=Roboto:300,500,900&display=swap&subset=latin-ext");
@@ -46,11 +47,11 @@ const WrapperAbout = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 50px;
-  min-height: calc(100vh - 300px);
+  padding: 30px;
+  min-height: calc(100vh - 402px);
   color: #fff;
   background-color: #0f0f0f;
-  background-image: url(https://images.pexels.com/photos/1509428/pexels-photo-1509428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-image: url(${HeroImg});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -64,6 +65,14 @@ const WrapperAbout = styled.div`
     height: 100%;
     background: rgba(12, 12, 12, 0.9);
   }
+
+  @media(min-width: 900px) {
+    min-height: calc(100vh - 200px);
+  }
+
+  @media(min-width: 1100px) {
+    min-height: calc(100vh - 300px);
+  }
 `;
 
 const AboutContent = styled.div`
@@ -74,21 +83,41 @@ const AboutContent = styled.div`
 const WrapperColumn = styled.div`
   display: flex;  
   align-items: center;
-  justify-content: flex-end;
-  text-align: right;
-  flex: 0 0 50%;
-  min-height: 300px;
-  padding: 50px 150px 50px 50px;
+  justify-content: center;
+  text-align: center;
+  flex: 0 0 100%;
+  min-height: 100px;
+  padding: 40px 30px;
 
   color: #0c0c0c;
   background: #fff;
 
   :last-child {
-    justify-content: flex-start;
     color: #fff;
     background: #0c0c0c;
-    text-align: left;
-    padding: 50px 50px 50px 150px;
+  }
+
+  @media(min-width: 900px) {
+    flex: 0 0 50%;
+    min-height: 200px;
+    padding: 30px 60px 30px 30px;
+    text-align: right;
+    justify-content: flex-end;
+
+    :last-child {
+      padding: 30px 30px 30px 60px;
+      text-align: left;
+      justify-content: flex-start;
+    }
+  }
+
+  @media(min-width: 1100px) {
+    min-height: 300px;
+    padding: 30px 150px 30px 30px;
+
+    :last-child {
+      padding: 30px 30px 30px 150px;
+    }
   }
 `;
 
@@ -105,7 +134,7 @@ const IndexPage = () => (
         <AboutContent>
           <Header1>Hi! I'm Rafał Depa.</Header1>
           <StyledLink to="/about">
-            <Button light>MEET ME</Button>
+            <Button light>ABOUT ME</Button>
           </StyledLink>
         </AboutContent>        
       </WrapperAbout>
